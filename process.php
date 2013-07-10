@@ -2,7 +2,6 @@
 session_start();
 
 	$min_password_length = 6;
-	$error_message = [];
 
 	//Can detect an empty field two ways:
 	//
@@ -13,37 +12,38 @@ session_start();
 	// should avoid calling a function (for efficiency)
 	if ( $_POST["first_name"] == false )
 	{
-		$error_message[] = "The First Name field is empty!";
+		$_SESSION["errors"]["first_name"] = "The First Name field is empty!";
 	}
 	if ( $_POST["last_name"] == false )
 	{
-		$error_message[] = "The Last Name field is empty!";
+		$_SESSION["errors"]["last_name"] = "The Last Name field is empty!";
 	}
 	if ( $_POST["email"] == false )
 	{
-		$error_message[] = "The Email field is empty!";
+		$_SESSION["errors"]["email"] = "The Email field is empty!";
 	}
 	
 	if ( $_POST["password"] == false )
 	{
-		$error_message[] = "The password field is empty!";
+		$_SESSION["errors"]["password"] = "The password field is empty!";
 	}
 
 	//Maybe this should be refactored into one function,
 	//called twice?
 	if ( preg_match("#[\d]#", $_POST["first_name"]) )
 	{
-		$error_message[] = "First name is invalid!";
+		$_SESSION["errors"]["first_name"] = "First name is invalid!";
+		// Remember that you can't have a digit in an empty field!
 	}
 	if ( preg_match("#[\d]#", $_POST["last_name"]) )
 	{
-		$error_message[] = "Last name is invalid!";
+		$_SESSION["errors"]["last_name"] = "Last name is invalid!";
 	}
 
 	//validate email
 	if(! (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) )
 	{
-		$error_message[] =  "Invalid email!";
+		$_SESSION["errors"]["email"] =  "Invalid email!";
 	}
 
 	//validate birth_date
@@ -58,20 +58,16 @@ session_start();
 	//validate password length
 	if ( strlen($_POST["password"]) <= $min_password_length )
 	{
-		$error_message[] =  "The password should be more than 6 characters!";
+		$_SESSION["errors"]["password"] = "The password should be more than 6 characters!";
 	}
 
-	//validate password = confrim_password
+	//validate password = confirm_password
 	if (! ($_POST["password"] == $_POST["confirm_password"]) )
 	{
-		$error_message[] =  "The password fields do not match!";
+		$_SESSION["errors"]["confirm_password"] =  "The password fields do not match!";
 	}
 
-	if ( count($error_message) > 0 )
-	{
-		$_SESSION["errors"] = $error_message;
-	}
-	else
+	if (! isset($_SESSION["errors"]) )
 	{
 		$_SESSION["success"] = "Thanks for submitting your information.";
 	}
