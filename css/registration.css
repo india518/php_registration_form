@@ -2,7 +2,7 @@
 	color: #000;
 	font: inherit;
 	font-family: arial;
-	font-size: 14px;
+	font-size: 12px;
 	margin: 0px auto;
 	padding: 0px;
 }
@@ -13,4 +13,44 @@
 
 .highlight_field {
 	border: 2px solid red;
+}
+
+#wrapper {}
+
+#validation {
+	border: 2px solid red;
+	margin: 10px;
+	padding: 8px;
+}
+
+#err_message {
+	font-size: 14px;
+	padding: 5px 0px;
+}
+
+#user_login {
+	background-color: lightblue;
+	border: 2px solid gray;
+	border-radius: 10px;
+	margin: 10px;
+	padding: 5px;
+	width: 350px;
+	text-align: right;
+}
+
+#user_login * {
+	font-size: 16px;
+	padding: 5px;
+}
+
+#user_login input {
+	border-radius: 10px;
+	width: 175px;
+}
+
+#user_login input[type="submit"] {
+	background-color: lightgray;
+	border-radius: 10px;
+	padding: 10px 0px;
+	width: 100px;
 }

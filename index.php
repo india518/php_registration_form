@@ -6,6 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>User Login</title>
+		<link rel="stylesheet" type="text/css" href="css/registration.css">
 	</head>
 	<body>
 		<div id="wrapper">
