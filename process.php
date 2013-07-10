@@ -2,6 +2,7 @@
 session_start();
 
 	$min_password_length = 6;
+	$password_empty = false;
 
 	//Can detect an empty field two ways:
 	//
@@ -26,6 +27,7 @@ session_start();
 	if ( $_POST["password"] == false )
 	{
 		$_SESSION["errors"]["password"] = "The password field is empty!";
+		$password_empty = true;
 	}
 
 	//Maybe this should be refactored into one function,
@@ -58,7 +60,10 @@ session_start();
 	//validate password length
 	if ( strlen($_POST["password"]) <= $min_password_length )
 	{
-		$_SESSION["errors"]["password"] = "The password should be more than 6 characters!";
+		if ( $password_empty == false ) //not set yet
+		{
+			$_SESSION["errors"]["password"] = "The password should be more than 6 characters!";
+		} //else leave current "empty" message
 	}
 
 	//validate password = confirm_password
