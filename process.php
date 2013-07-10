@@ -79,7 +79,6 @@ session_start();
 		$_SESSION["success"] = "Thanks for submitting your information.";
 	}
 
-	$_SESSION["errors"] = $error_message;
 	//$_SESSION["birth_date"] = $birth_date;
 	header("location: index.php");
 
