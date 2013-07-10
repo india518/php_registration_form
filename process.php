@@ -23,10 +23,7 @@ session_start();
 	{
 		$error_message[] = "The Email field is empty!";
 	}
-	if ( $_POST["birth_date"] == false )
-	{
-		$error_message[] = "The Birth Date field is empty!";
-	}
+	
 	if ( $_POST["password"] == false )
 	{
 		$error_message[] = "The password field is empty!";
