@@ -1,0 +1,16 @@
+* {
+	color: #000;
+	font: inherit;
+	font-family: arial;
+	font-size: 14px;
+	margin: 0px auto;
+	padding: 0px;
+}
+
+.hidden {
+	display: none;
+}
+
+.highlight_field {
+	border: 2px solid red;
+}
