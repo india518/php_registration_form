@@ -2,6 +2,7 @@
 session_start();
 
 	$min_password_length = 6;
+	$error_message = [];
 
 	//Can detect an empty field two ways:
 	//
@@ -67,6 +68,15 @@ session_start();
 	if (! ($_POST["password"] == $_POST["confirm_password"]) )
 	{
 		$error_message[] =  "The password fields do not match!";
+	}
+
+	if ( count($error_message) > 0 )
+	{
+		$_SESSION["errors"] = $error_message;
+	}
+	else
+	{
+		$_SESSION["success"] = "Thanks for submitting your information.";
 	}
 
 	$_SESSION["errors"] = $error_message;

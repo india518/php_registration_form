@@ -18,19 +18,27 @@
 				?>
 			</div>
 
-			<h3 id="validation">
-				<?php
-					if (isset($_SESSION["errors"]))
-					{
-						//display all error messages in "errors" array
-						foreach($_SESSION["errors"] as $error){
-							echo "<p id='err_message'>" . $error . "</p>";
-						}
-					}
-				?>
-			</h3>
+	<?php
+			if ( isset($_SESSION["errors"]) )
+			{
+				//display all error messages in "errors" array
+				foreach($_SESSION["errors"] as $error)
+				{	?>
+		 			<h3 id="error_display">
+	<?php		 		echo $error;	?>
+					</h3>	
+	<?php		}	
+			}	?>
 
-			<form id="user_login" action="process.php" method="post">
+	<?php
+			if ( isset($_SESSION["success"]) )
+			{	?>
+		 		<h3 id="registration_success">
+	<?php			echo $_SESSION["success"];	?>
+				</h3>		
+	<?php	}	?>
+
+			<form id="registration" action="process.php" method="post">
 				<div>
 					<label for="first_name">First Name: </label>
 					<input type="text" name="first_name" id="first_name" />

@@ -17,18 +17,21 @@
 
 #wrapper {}
 
-#validation {
+#error_display {
 	border: 2px solid red;
+	font-size: 14px;
 	margin: 10px;
 	padding: 8px;
 }
 
-#err_message {
+#registration_success {
+	border: 2px solid green;
 	font-size: 14px;
-	padding: 5px 0px;
+	margin: 10px;
+	padding: 8px;
 }
 
-#user_login {
+#registration {
 	background-color: lightblue;
 	border: 2px solid gray;
 	border-radius: 10px;
@@ -38,17 +41,17 @@
 	text-align: right;
 }
 
-#user_login * {
+#registration * {
 	font-size: 16px;
 	padding: 5px;
 }
 
-#user_login input {
+#registration input {
 	border-radius: 10px;
 	width: 175px;
 }
 
-#user_login input[type="submit"] {
+#registration input[type="submit"] {
 	background-color: lightgray;
 	border-radius: 10px;
 	padding: 10px 0px;
