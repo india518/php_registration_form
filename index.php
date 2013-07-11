@@ -41,27 +41,57 @@
 			<form id="registration" action="process.php" method="post">
 				<div>
 					<label for="first_name">First Name: </label>
-					<input type="text" name="first_name" id="first_name" />
+					<input type="text" name="first_name" id="first_name"
+			<?php 	if ( isset($_SESSION["errors"]["first_name"]) )
+					{
+						echo "class='error_highlight'";
+					}	?>
+					 />
 				</div>
 				<div>
 					<label for="last_name">Last Name: </label>
-					<input type="text" name="last_name" id="last_name" />
+					<input type="text" name="last_name" id="last_name"
+			<?php	if ( isset($_SESSION["errors"]["last_name"]) )
+					{
+						echo "class='error_highlight'";
+					}	?>
+					 />
 				</div>
 				<div>
 					<label for="email">Email: </label>
-					<input type="text" name="email" id="email" />
+					<input type="text" name="email" id="email"
+			<?php	if ( isset($_SESSION["errors"]["email"]) )
+					{
+						echo "class='error_highlight'";
+					}	?>
+					 />
 				</div>
 				<div>		
 					<label for="birth_date">Birth Date: </label>
-					<input type="date" name="birth_date" id="birth_date" />
+					<input type="date" name="birth_date" id="birth_date"
+			<?php	if ( isset($_SESSION["errors"]["birth_date"]) )
+					{
+						echo "class='error_highlight'";
+					}	?>
+					 />
 				</div>
 				<div>
 					<label for="password">Password: </label>
-					<input type="password" name="password" id="password" />
+					<input type="password" name="password" id="password"
+			<?php	if ( isset($_SESSION["errors"]["password"]) )
+					{
+						echo "class='error_highlight'";
+					}	?>
+					 />
 				</div>
 				<div>
 					<label for="confirm_password">Confirm Password: </label>
-					<input type="password" name="confirm_password" id="confirm_password" />
+					<input type="password" name="confirm_password" id="confirm_password"
+			<?php	if ( isset($_SESSION["errors"]["password"]) )
+					{
+						echo "class='error_highlight'";
+					}	?>
+					 />
 				</div>
 				<input type="submit" value="Login" />
 			</form>

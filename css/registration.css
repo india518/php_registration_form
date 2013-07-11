@@ -11,8 +11,9 @@
 	display: none;
 }
 
-.highlight_field {
+.error_highlight {
 	border: 2px solid red;
+	background-color: lightyellow;
 }
 
 #wrapper {}
