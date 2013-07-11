@@ -75,7 +75,7 @@
 					<?= ( isset($_SESSION["errors"]["confirm_password"]) ) ?
 							" class='error_highlight'" : ""	?> />
 				</div>
-				<input type="submit" value="Login" />
+				<input type="submit" value="Register" />
 			</form>
 		</div>
 	</body>

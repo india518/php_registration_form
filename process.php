@@ -2,7 +2,6 @@
 session_start();
 
 	$min_password_length = 6;
-	$password_empty = false;
 
 	if ( empty($_POST["first_name"]) )
 	{
@@ -20,7 +19,12 @@ session_start();
 	if ( empty($_POST["password"]) )
 	{
 		$_SESSION["errors"]["password"] = "The password field is empty!";
-		$password_empty = true;
+	}
+	else if ( strlen($_POST["password"]) <= $min_password_length )
+	{	
+		if ( strlen($_POST["password"]) <= $min_password_length )
+		//we have a password, check the length
+		$_SESSION["errors"]["password"] = "The password should be more than 6 characters!";
 	}
 
 	//Maybe this should be refactored into one function,
@@ -48,15 +52,6 @@ session_start();
 	if ( isset($_POST["birth_date"]) )
 	{
 		$birth_date = $_POST["birth_date"]; //for display purposes
-	}
-
-	//validate password length
-	if ( strlen($_POST["password"]) <= $min_password_length )
-	{
-		if ( $password_empty == false ) //not set yet
-		{
-			$_SESSION["errors"]["password"] = "The password should be more than 6 characters!";
-		} //else leave current "empty" message
 	}
 
 	//validate password = confirm_password
