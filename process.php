@@ -4,27 +4,20 @@ session_start();
 	$min_password_length = 6;
 	$password_empty = false;
 
-	//Can detect an empty field two ways:
-	//
-	// 1) if (! isset($_POST["first_name"]) )
-	// 2) if ( $_POST["first_name"] == false )
-	//
-	// Is one better than the other? For now, assume we
-	// should avoid calling a function (for efficiency)
-	if ( $_POST["first_name"] == false )
+	if ( empty($_POST["first_name"]) )
 	{
 		$_SESSION["errors"]["first_name"] = "The First Name field is empty!";
 	}
-	if ( $_POST["last_name"] == false )
+	if ( empty($_POST["last_name"]) )
 	{
 		$_SESSION["errors"]["last_name"] = "The Last Name field is empty!";
 	}
-	if ( $_POST["email"] == false )
+	if ( empty($_POST["email"]) )
 	{
 		$_SESSION["errors"]["email"] = "The Email field is empty!";
 	}
 	
-	if ( $_POST["password"] == false )
+	if ( empty($_POST["password"]) )
 	{
 		$_SESSION["errors"]["password"] = "The password field is empty!";
 		$password_empty = true;
